@@ -5,10 +5,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-your-secret-key-here'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-your-secret-key-here')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # Hosts allowed to access the site
 ALLOWED_HOSTS = [
@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     # Third party apps
     'crispy_forms',
     'crispy_bootstrap5',
-    #'ckeditor',
+    # 'ckeditor',
     'django_cleanup',
     
     # Custom apps
@@ -113,11 +113,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# CKEditor Configuration
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'height': 300,
-        'width': '100%',
-    },
-}
+# CKEditor Configuration (commented out since we removed it)
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         'toolbar': 'full',
+#         'height': 300,
+#         'width': '100%',
+#     },
+# }
+
+# ============ RENDER.COM DEPLOYMENT ============
+if 'RENDER' in os.environ:
+    # Use staticfiles directory on Render
+    STATIC_ROOT = '/opt/render/project/src/staticfiles'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    
+    # For media files on Render (use SQLite or consider cloud storage)
+    MEDIA_ROOT = '/opt/render/project/src/media'
