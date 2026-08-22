@@ -1,0 +1,373 @@
+/* --- Global Styles & Dark Theme --- */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #121212;
+    --bg-card: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;  /* Made brighter */
+    --text-muted: #aaaaaa;      /* Made brighter */
+    --accent-color: #64ffda;
+    --border-color: #2a2a2a;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding-top: 70px;
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-primary) !important;
+}
+.navbar-brand span {
+    color: var(--accent-color);
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+.nav-link:hover {
+    color: var(--text-primary) !important;
+}
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-color);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+.hero-content h1 .highlight {
+    color: var(--accent-color);
+}
+.hero-content .subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+.hero-content .bio {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+.hero-content .bio strong {
+    color: var(--text-primary);
+}
+
+/* --- Profile Image --- */
+.profile-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 40px rgba(100, 255, 218, 0.15);
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+}
+.btn-outline-light {
+    border: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+    border-radius: 50px;
+    padding: 12px 35px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-outline-light:hover {
+    background: var(--text-secondary);
+    color: var(--bg-primary);
+}
+
+/* --- Section Titles --- */
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--text-primary);
+}
+.section-title span {
+    color: var(--accent-color);
+}
+
+/* --- Cards --- */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    overflow: hidden;
+    color: var(--text-primary);
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    border-color: var(--accent-color);
+}
+.card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+.card .card-body {
+    padding: 1.5rem;
+}
+.card .card-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+.card .card-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+.card .badge {
+    background: rgba(100, 255, 218, 0.15) !important;
+    color: var(--accent-color) !important;
+    font-weight: 400;
+    margin: 3px;
+}
+.card-footer {
+    background: transparent !important;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Skill Items --- */
+.skill-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+.skill-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+.skill-item i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+.skill-item h6 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+.skill-item .progress {
+    height: 4px;
+    background: var(--border-color);
+    border-radius: 2px;
+    margin-top: 10px;
+}
+.skill-item .progress-bar {
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* --- Certification Cards --- */
+.cert-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+.cert-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+.cert-card .cert-logo {
+    max-height: 50px;
+    margin-bottom: 1rem;
+}
+.cert-card .card-title {
+    color: var(--text-primary);
+}
+.cert-card .text-muted {
+    color: var(--text-secondary) !important;
+}
+.cert-card .credential-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* --- About Page Specific --- */
+.about-text {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+.about-text strong {
+    color: var(--text-primary);
+}
+.about-text .highlight-text {
+    color: var(--accent-color);
+}
+
+/* --- Contact Page --- */
+.contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    color: var(--text-primary);
+}
+.contact-card .form-control {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+.contact-card .form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
+}
+.contact-card .form-label {
+    color: var(--text-secondary);
+}
+.contact-card a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.contact-card a:hover {
+    text-decoration: underline;
+}
+.contact-info-item {
+    color: var(--text-secondary);
+}
+.contact-info-item i {
+    color: var(--accent-color);
+    width: 25px;
+}
+
+/* --- Footer --- */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 30px 0;
+    color: var(--text-secondary);
+}
+.footer .social-links a {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    margin: 0 12px;
+    transition: color 0.3s ease;
+}
+.footer .social-links a:hover {
+    color: var(--accent-color);
+}
+.footer p {
+    color: var(--text-secondary);
+}
+
+/* --- Alert Box --- */
+.alert {
+    background: rgba(100, 255, 218, 0.1) !important;
+    border: 1px solid var(--accent-color) !important;
+    color: var(--text-primary) !important;
+}
+.alert i {
+    color: var(--accent-color);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        margin-top: 2rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- Extra: Text Visibility Fixes --- */
+.text-light {
+    color: var(--text-primary) !important;
+}
+.text-muted {
+    color: var(--text-muted) !important;
+}
+.lead {
+    color: var(--text-secondary);
+}
