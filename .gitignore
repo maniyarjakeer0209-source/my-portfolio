@@ -1,0 +1,60 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Django
+db.sqlite3
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+.env
+*.pid
+
+# Static & Media
+staticfiles/
+media/
+static/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Deployment
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Node (if using any)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Other
+*.log
+*.tmp
+*.temp

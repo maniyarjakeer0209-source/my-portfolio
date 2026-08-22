@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Certifications - Mohammed Jakeer F Maniyar{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: var(--bg-secondary);">
+    <div class="container">
+        <h1 class="display-4 fw-bold text-center mb-3">My <span style="color: var(--accent-color);">Certifications</span></h1>
+        <p class="text-center text-muted mb-5">
+            Professional certifications and credentials I've earned
+        </p>
+        
+        <div class="row g-4">
+            {% for cert in certifications %}
+            <div class="col-md-6 col-lg-4">
+                <div class="cert-card h-100">
+                    <div class="text-center">
+                        {% if cert.logo %}
+                        <img src="{{ cert.logo.url }}" alt="{{ cert.organization }}" class="cert-logo">
+                        {% else %}
+                        <i class="fas fa-certificate fa-3x mb-3" style="color: var(--accent-color);"></i>
+                        {% endif %}
+                        
+                        <h5 class="card-title">{{ cert.name }}</h5>
+                        <p class="text-muted">{{ cert.organization }}</p>
+                        
+                        <p class="small text-muted">
+                            <i class="far fa-calendar-alt me-1"></i>
+                            Issued: {{ cert.issue_date|date:"F Y" }}
+                        </p>
+                        
+                        {% if cert.expiry_date %}
+                        <p class="small text-muted">
+                            <i class="far fa-clock me-1"></i>
+                            Expires: {{ cert.expiry_date|date:"F Y" }}
+                        </p>
+                        {% endif %}
+                        
+                        {% if cert.credential_url %}
+                        <a href="{{ cert.credential_url }}" target="_blank" class="btn btn-primary btn-sm mt-2">
+                            <i class="fas fa-external-link-alt me-1"></i>Verify Credential
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <div class="card p-5">
+                    <i class="fas fa-certificate fa-4x mb-3" style="color: var(--text-secondary);"></i>
+                    <p class="text-muted">No certifications added yet.</p>
+                    <p class="text-muted small">Add your certifications in the <a href="/admin/" style="color: var(--accent-color);">admin panel</a>.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
