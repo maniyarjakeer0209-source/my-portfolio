@@ -14,10 +14,9 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'my-portfolio-j4sv.onrender.com',
-    'my-portfolio.onrender.com',
-    'mohammedjakeer.pythonanywhere.com',
-    '.onrender.com',
+    '.vercel.app',  # This allows ALL vercel.app subdomains
+    'my-portfolio-kq4lnkji0-mohammed-jakeer.vercel.app',
+    'my-portfolio-taupe-theta-91.vercel.app',
 ]
 
 # For Render dynamic domain
@@ -130,3 +129,9 @@ if 'RENDER' in os.environ:
     
     # For media files on Render (use SQLite or consider cloud storage)
     MEDIA_ROOT = '/opt/render/project/src/media'
+
+# ============ VERCEL DEPLOYMENT ============
+if 'VERCEL' in os.environ:
+    DEBUG = False
+    ALLOWED_HOSTS = ['.vercel.app', '*']
+    STATIC_ROOT = '/vercel/path0/staticfiles'
