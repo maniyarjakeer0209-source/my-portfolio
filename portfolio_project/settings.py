@@ -17,6 +17,7 @@ ALLOWED_HOSTS = [
     'my-portfolio-j4sv.onrender.com',
     'my-portfolio.onrender.com',
     'mohammedjakeer.pythonanywhere.com',
+    '.onrender.com',
 ]
 
 # For Render dynamic domain
@@ -35,7 +36,7 @@ INSTALLED_APPS = [
     # Third party apps
     'crispy_forms',
     'crispy_bootstrap5',
-    'ckeditor',
+    #'ckeditor',
     'django_cleanup',
     
     # Custom apps
