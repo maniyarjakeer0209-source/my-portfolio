@@ -62,3 +62,6 @@ yarn-error.log
 db_backup.sqlite3
 portfolio_backup.json
 media_backup/
+# Local portfolio data backups - never commit
+portfolio_backup_clean.json
+portfolio_data.json
