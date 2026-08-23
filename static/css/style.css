@@ -443,30 +443,21 @@ p {
 .skill-item .devicon-redis-plain {
     color: #dc382d !important;
 }
-/* Fix Devicon logos rendered through ::before */
+/* Devicon visibility */
 .skill-item > i::before {
     color: inherit !important;
 }
 
-/* GitHub */
-.skill-item .devicon-github-original {
-    color: #ffffff !important;
-}
-
-/* Django */
-.skill-item .devicon-django-plain {
-    color: #44b78b !important;
-}
-.skill-github-logo {
+.skill-item .devicon-github-original,
+.skill-item .devicon-github-original::before {
     color: #ffffff !important;
     opacity: 1 !important;
+    filter: none !important;
 }
 
-.skill-django-logo {
+.skill-item .devicon-django-plain,
+.skill-item .devicon-django-plain::before {
     color: #44b78b !important;
     opacity: 1 !important;
-}
-
-.skill-django-logo::before {
-    color: #44b78b !important;
+    filter: none !important;
 }
