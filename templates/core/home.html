@@ -238,7 +238,35 @@
 
                         <div class="skill-item">
 
-                            <i class="{% if skill.icon %}{{ skill.icon }}{% else %}fas fa-code{% endif %}"></i>
+                            {% if skill.name == "Python" %}
+    <i class="devicon-python-plain colored"></i>
+{% elif skill.name == "SQL" %}
+    <i class="fas fa-database"></i>
+{% elif skill.name == "Kotlin" %}
+    <i class="devicon-kotlin-plain colored"></i>
+{% elif skill.name == "Android Development" %}
+    <i class="devicon-android-plain colored"></i>
+{% elif skill.name == "Jetpack Compose" %}
+    <i class="devicon-jetpackcompose-plain colored"></i>
+{% elif skill.name == "FastAPI" %}
+    <i class="devicon-fastapi-plain colored"></i>
+{% elif skill.name == "Firebase" %}
+    <i class="devicon-firebase-plain colored"></i>
+{% elif skill.name == "PostgreSQL" %}
+    <i class="devicon-postgresql-plain colored"></i>
+{% elif skill.name == "Git & GitHub" %}
+    <i class="fab fa-github skill-github-logo"></i>
+{% elif skill.name == "REST API" %}
+    <i class="fas fa-server"></i>
+{% elif skill.name == "Go" %}
+    <i class="devicon-go-plain colored"></i>
+{% elif skill.name == "Django" %}
+    <i class="devicon-django-plain skill-django-logo"></i>
+{% elif skill.name == "Redis" %}
+    <i class="devicon-redis-plain colored"></i>
+{% else %}
+    <i class="fas fa-code"></i>
+{% endif %}
 
                             <h6>
                                 {{ skill.name }}

@@ -1,4 +1,4 @@
-from django.db import migrations
+﻿from django.db import migrations
 
 
 def seed_portfolio_data(apps, schema_editor):
@@ -7,7 +7,7 @@ def seed_portfolio_data(apps, schema_editor):
     Experience = apps.get_model("portfolio", "Experience")
 
     Project.objects.create(
-        title="Shishu-Sneh û Baby's First Year Guide",
+        title="Shishu-Sneh — Baby's First Year Guide",
         description="Shishu-Sneh is an Android application designed to help new mothers monitor their baby's growth, developmental milestones, and vaccination schedule. The application provides an easy-to-use interface for tracking important information during a baby's first year. Developed with a focus on clean UI, usability, and structured application architecture.",
         image='',
         github_link='https://github.com/maniyarjakeer0209-source/ShishuSnehApp',
@@ -22,7 +22,7 @@ def seed_portfolio_data(apps, schema_editor):
     )
 
     Project.objects.create(
-        title='Rivyou û Product Search API',
+        title='Rivyou — Product Search API',
         description='Rivyou is a backend product search API developed to provide structured product management and search functionality. The project uses Django with PostgreSQL for data persistence and exposes API endpoints for working with product information. Product data is imported from CSV and managed through a relational database, demonstrating practical experience with backend development, database modeling, migrations, and REST API development.',
         image='',
         github_link='https://github.com/maniyarjakeer0209-source/rivyou-product-search-api',
@@ -37,7 +37,7 @@ def seed_portfolio_data(apps, schema_editor):
     )
 
     Project.objects.create(
-        title='CuraLink û Healthcare Platform',
+        title='CuraLink — Healthcare Platform',
         description='CuraLink is a healthcare-focused application designed to simplify access to healthcare-related services and information through a user-friendly digital platform. The project demonstrates application development, structured UI design, data handling, and integration of modern software development technologies.',
         image='',
         github_link='https://github.com/maniyarjakeer0209-source/curalink',
@@ -67,7 +67,7 @@ def seed_portfolio_data(apps, schema_editor):
     )
 
     Project.objects.create(
-        title='Foresight û Predictive Kubernetes Autoscaling Engine',
+        title='Foresight — Predictive Kubernetes Autoscaling Engine',
         description='Foresight is a lightweight, pluggable Go service for predictive Kubernetes autoscaling. Instead of waiting for CPU or memory spikes, it analyzes business signals such as flash sales, traffic surges, and market volatility to predict increased demand and proactively scale workloads.\r\n\r\nThe system uses a concurrent worker-pool architecture with goroutines and channels, a pluggable rule engine for extensible scoring, Redis caching for faster repeated predictions, batch signal processing, health checks, structured logging, and graceful degradation when the cache is unavailable.\r\n\r\nBuilt with production-oriented software engineering principles, Foresight demonstrates practical experience in Go, concurrency, REST API design, caching, clean architecture, system design, and performance optimization.',
         image='',
         github_link='https://github.com/maniyarjakeer0209-source/foresight',
