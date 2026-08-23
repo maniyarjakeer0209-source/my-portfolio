@@ -58,3 +58,7 @@ yarn-error.log
 *.log
 *.tmp
 *.temp
+# Local deployment backups - never commit
+db_backup.sqlite3
+portfolio_backup.json
+media_backup/
