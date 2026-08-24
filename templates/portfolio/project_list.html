@@ -4,64 +4,182 @@
 {% block title %}Projects - Mohammed Jakeer F Maniyar{% endblock %}
 
 {% block content %}
-<section class="py-5" style="background: var(--bg-secondary);">
+
+<section class="projects-section py-5">
     <div class="container">
-        <h1 class="display-4 fw-bold text-center mb-3">My <span style="color: var(--accent-color);">Projects</span></h1>
-        <p class="text-center text-muted mb-5">
-            Here are some of the projects I've worked on
-        </p>
-        
+
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold">
+                My <span style="color: var(--accent-color);">Projects</span>
+            </h1>
+
+            <p class="lead mt-3">
+                Here are some of the projects I've worked on
+            </p>
+        </div>
+
+        <!-- Projects -->
         <div class="row g-4">
+
             {% for project in projects %}
+
             <div class="col-md-6 col-lg-4">
+
                 <div class="card project-card h-100">
-                    {% if project.image %}
-                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
-                    {% else %}
-                    <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
-                        <i class="fas fa-project-diagram fa-4x" style="color: var(--text-secondary);"></i>
+
+                    <!-- Project Visual -->
+                    <div class="project-visual">
+
+                        {% if project.image %}
+
+                            <img
+                                src="{{ project.image.url }}"
+                                class="project-image"
+                                alt="{{ project.title }}"
+                            >
+
+                        {% else %}
+
+                            <div class="project-logo-visual">
+
+                                {% if "Foresight" in project.title %}
+
+                                    <i class="devicon-go-plain colored"></i>
+                                    <i class="devicon-kubernetes-plain colored"></i>
+
+                                {% elif "Student Readiness" in project.title %}
+
+                                    <i class="devicon-python-plain colored"></i>
+
+                                {% elif "CuraLink" in project.title %}
+
+                                    <i class="devicon-python-plain colored"></i>
+                                    <i class="devicon-django-plain colored"></i>
+
+                                {% elif "Rivyou" in project.title %}
+
+                                    <i class="devicon-django-plain colored"></i>
+                                    <i class="devicon-postgresql-plain colored"></i>
+
+                                {% elif "Shishu-Sneh" in project.title %}
+
+                                    <i class="devicon-kotlin-plain colored"></i>
+                                    <i class="devicon-android-plain colored"></i>
+
+                                {% else %}
+
+                                    <i class="fas fa-code"></i>
+
+                                {% endif %}
+
+                            </div>
+
+                        {% endif %}
+
                     </div>
-                    {% endif %}
-                    
+
+
+                    <!-- Content -->
                     <div class="card-body">
-                        <h5 class="card-title">{{ project.title }}</h5>
-                        <p class="card-text">{{ project.description|truncatewords:20|safe }}</p>
-                        <div class="project-tech mb-2">
+
+                        <h5 class="card-title">
+                            {{ project.title }}
+                        </h5>
+
+                        <p class="card-text">
+                            {{ project.description|truncatewords:20|safe }}
+                        </p>
+
+                        <!-- Technologies -->
+                        <div class="project-tech mb-3">
+
                             {% for tech in project.get_tech_list %}
-                            <span class="badge">{{ tech }}</span>
+
+                                <span class="badge">
+                                    {{ tech }}
+                                </span>
+
                             {% endfor %}
+
                         </div>
+
                     </div>
-                    
+
+
+                    <!-- Footer -->
                     <div class="card-footer bg-transparent border-0 d-flex justify-content-between">
-                        <a href="{% url 'portfolio:project_detail' project.id %}" class="btn btn-primary btn-sm">
-                            <i class="fas fa-eye me-1"></i>Details
+
+                        <a
+                            href="{% url 'portfolio:project_detail' project.id %}"
+                            class="btn btn-primary btn-sm"
+                        >
+                            <i class="fas fa-eye me-1"></i>
+                            Details
                         </a>
+
                         <div>
+
                             {% if project.github_link %}
-                            <a href="{{ project.github_link }}" target="_blank" class="btn btn-outline-light btn-sm me-1">
+
+                            <a
+                                href="{{ project.github_link }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-outline-light btn-sm me-1"
+                                aria-label="GitHub"
+                            >
                                 <i class="fab fa-github"></i>
                             </a>
+
                             {% endif %}
+
                             {% if project.demo_link %}
-                            <a href="{{ project.demo_link }}" target="_blank" class="btn btn-outline-light btn-sm">
+
+                            <a
+                                href="{{ project.demo_link }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-outline-light btn-sm"
+                                aria-label="Live Demo"
+                            >
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
+
                             {% endif %}
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
             {% empty %}
+
             <div class="col-12 text-center">
+
                 <div class="card p-5">
-                    <i class="fas fa-code fa-4x mb-3" style="color: var(--text-secondary);"></i>
-                    <p class="text-muted">No projects added yet.</p>
-                    <p class="text-muted small">Add your projects in the <a href="/admin/" style="color: var(--accent-color);">admin panel</a>.</p>
+
+                    <i
+                        class="fas fa-code fa-4x mb-3"
+                        style="color: var(--text-secondary);"
+                    ></i>
+
+                    <p class="text-muted">
+                        No projects added yet.
+                    </p>
+
                 </div>
+
             </div>
+
             {% endfor %}
+
         </div>
+
     </div>
 </section>
+
 {% endblock %}

@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Profile, Skill, Education
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Profile, Skill, Education, ContactMessage
 from portfolio.models import Project, Certification, Experience, Testimonial
 
 def home(request):
@@ -45,8 +46,35 @@ def contact(request):
         profile = Profile.objects.first()
     except:
         profile = None
-    
+
+    if request.method == 'POST':
+        name = request.POST.get('name', '').strip()
+        email = request.POST.get('email', '').strip()
+        subject = request.POST.get('subject', '').strip()
+        message = request.POST.get('message', '').strip()
+
+        if name and email and message:
+            ContactMessage.objects.create(
+                name=name,
+                email=email,
+                subject=subject,
+                message=message,
+            )
+
+            messages.success(
+                request,
+                "Your message has been sent successfully!"
+            )
+
+            return redirect('core:contact')
+
+        messages.error(
+            request,
+            "Please fill in your name, email, and message."
+        )
+
     context = {
         'profile': profile,
     }
+
     return render(request, 'core/contact.html', context)
